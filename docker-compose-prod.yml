@@ -1,0 +1,86 @@
+version: '3.7'
+services:
+  redis:
+    image: redis
+    networks:
+      default:
+        ipv4_address: 172.10.0.101
+    restart: always
+  nginx:
+    build:
+      context: ./docker/prod
+      dockerfile: nginx/Dockerfile
+    environment:
+      TZ: "Europe/Moscow"
+    volumes:
+      - ./app:/app
+    depends_on:
+      - php-fpm
+    networks:
+      default:
+        ipv4_address: 172.10.0.102
+    restart: always
+  php-fpm:
+    build:
+      context: ./docker/prod
+      dockerfile: php-fpm/Dockerfile
+    volumes:
+      - ./app:/app
+    depends_on:
+      - redis
+      - db
+    extra_hosts:
+      - "mappa-notify.local:172.10.0.104"
+      - host.docker.internal:host-gateway
+    environment:
+      TZ: "Europe/Moscow"
+      REDIS_PORT: 6379
+      REDIS_HOST: redis
+      APP_ENV: 'production'
+      APP_DEBUG: 'false'
+    networks:
+      default:
+        ipv4_address: 172.10.0.103
+        aliases:
+          - mappa
+    links:
+      - "db:app"
+    restart: always
+  php-cli:
+    build:
+      context: ./docker/prod
+      dockerfile: php-cli/Dockerfile
+    volumes:
+      - ./app:/app
+    depends_on:
+      - redis
+      - db
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    environment:
+      TZ: "Europe/Moscow"
+      REDIS_PORT: 6379
+      REDIS_HOST: redis
+      APP_ENV: 'production'
+      APP_DEBUG: 'false'
+    networks:
+      default:
+        ipv4_address: 172.10.0.104
+    tty: true
+    restart: always
+  db:
+    image: postgres:13
+    volumes:
+      - ./storage/docker/postgres:/var/lib/postgresql/data
+    environment:
+      TZ: 'Europe/Moscow'
+      POSTGRES_USER: mappa
+      POSTGRES_PASSWORD: 8c2ZBbxx1Qv1
+      POSTGRES_DB: mappa
+    networks:
+      default:
+        ipv4_address: 172.10.0.105
+    restart: always
+networks:
+  default:
+      name: mappa
