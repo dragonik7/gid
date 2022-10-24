@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo "Adding hosts"
-HOSTS=('172.10.0.102 api-mappa.local' '172.10.0.107 mappa-notify.local')
+HOSTS=('172.16.0.3 gid.ru')
 
 if [[ -e "/c/Windows/System32/drivers/etc/hosts" ]]; then
   echo 'Your OS is Windows (Git bash)'

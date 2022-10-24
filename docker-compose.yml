@@ -3,8 +3,8 @@ services:
   redis:
     image: redis
     networks:
-      default:
-        ipv4_address: 192.168.69.4
+      gid:
+        ipv4_address: 172.16.0.2
   nginx:
     build:
       context: ./docker/dev
@@ -15,9 +15,10 @@ services:
       - ./app:/app
     depends_on:
       - php-fpm
+      - php-cli
     networks:
-      default:
-        ipv4_address: 192.168.69.3
+      gid:
+        ipv4_address: 172.16.0.3
   php-fpm:
     build:
       context: ./docker/dev
@@ -35,8 +36,8 @@ services:
       REDIS_PORT: 6379
       REDIS_HOST: redis
     networks:
-      default:
-        ipv4_address: 192.168.69.3
+      gid:
+        ipv4_address: 172.16.0.4
         aliases:
           - gid
     links:
@@ -58,8 +59,8 @@ services:
       REDIS_HOST: redis
       PHP_IDE_CONFIG: serverName=gid
     networks:
-      default:
-        ipv4_address: 192.168.69.3
+      gid:
+        ipv4_address: 172.16.0.5
     tty: true
   db:
     image: postgres:13
@@ -71,9 +72,12 @@ services:
       POSTGRES_PASSWORD: gid
       POSTGRES_DB: gid
     networks:
-      default:
-        ipv4_address: 192.168.69.4
+      gid:
+        ipv4_address: 172.16.0.6
 networks:
-  default:
-    external:
-      name: gid
+  gid:
+    name: gid
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.0.0/24
