@@ -1,5 +1,7 @@
 FROM php:8.1.5-fpm
 
+ARG USER_ID
+
 RUN mv $PHP_INI_DIR/php.ini-development $PHP_INI_DIR/php.ini
 
 RUN apt-get update && apt-get install -y && apt-get install curl -y && apt-get install git -y
@@ -73,3 +75,5 @@ RUN pecl install -o -f redis \
 COPY ./php/conf.d /usr/local/etc/php/conf.d
 
 WORKDIR /app
+
+RUN chown ${USER_ID}:www-data /app -R

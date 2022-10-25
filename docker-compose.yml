@@ -23,6 +23,8 @@ services:
     build:
       context: ./docker/dev
       dockerfile: php-fpm/Dockerfile
+      args:
+        - USER_ID
     volumes:
       - ./app:/app
     depends_on:
@@ -46,6 +48,8 @@ services:
     build:
       context: ./docker/dev
       dockerfile: php-cli/Dockerfile
+      args:
+        - USER_ID
     volumes:
       - ./app:/app
     depends_on:

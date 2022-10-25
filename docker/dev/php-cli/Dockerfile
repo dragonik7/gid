@@ -1,5 +1,7 @@
 FROM php:8.1.5-cli
 
+ARG USER_ID
+
 RUN mv $PHP_INI_DIR/php.ini-development $PHP_INI_DIR/php.ini
 
 RUN apt-get update && apt-get install -y && apt-get install curl -y && apt-get install git -y
@@ -76,3 +78,5 @@ COPY ./php/conf.d /usr/local/etc/php/conf.d
 COPY ./php-cli/.bashrc /root/
 
 WORKDIR /app
+
+RUN chown ${USER_ID}:www-data /app -R
