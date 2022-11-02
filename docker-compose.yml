@@ -74,7 +74,7 @@ services:
       TZ: 'Europe/Moscow'
       POSTGRES_USER: gid
       POSTGRES_PASSWORD: gid
-      POSTGRES_DB: gid
+      POSTGRES_MULTIPLE_DATABASES: gid,gid_test
     networks:
       gid:
         ipv4_address: 172.16.0.6
