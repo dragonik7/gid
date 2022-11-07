@@ -18,7 +18,7 @@ class UserRegisterTest extends TestCase
 
     public function test_user_successful()
     {
-        $response = $this->post(route('userRegister'), [
+        $response = $this->post(route('register'), [
             'full_name' => 'shamilion',
             'name' => 'shami',
             'email' => 'shamil79797@gmail.com',
@@ -32,7 +32,7 @@ class UserRegisterTest extends TestCase
 
     public function test_user_null()
     {
-        $response = $this->post(route('userRegister'));
+        $response = $this->post(route('register'));
         $response->assertUnprocessable();
     }
 }
