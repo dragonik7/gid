@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources\Place;
+namespace App\Http\Resources\Tour;
 
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\SuccessResource;
@@ -19,10 +19,9 @@ class TourListResource extends SuccessResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'info' => $this->info,
-            'price' => $this->geo,
-            'photos' => $this->photo,
             'price' => $this->price,
+            'photos' => $this->photo,
+            'duration' => $this->duration,
             'categories' => new CategoryResource($this->categories)
         ];
     }

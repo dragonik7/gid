@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Place;
+namespace App\Http\Requests\Tour;
 
 use App\Http\Dto\TourListDto;
 use App\Http\Requests\BaseApiRequest;

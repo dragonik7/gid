@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Resources\Place;
+namespace App\Http\Resources\Tour;
 
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\SuccessResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PlaceListResource extends SuccessResource
+class TourDetailResource extends SuccessResource
 {
     /**
      * Transform the resource into an array.
@@ -19,7 +19,13 @@ class PlaceListResource extends SuccessResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'geo' => $this->geo,
+            'info' => $this->info,
+            'price' => $this->price,
+            'photos' => $this->photo,
+            'date_start' => $this->date_start,
+            'duration' => $this->duration,
+            'places' => TourPlacesResource::collection($this->places),
+            'categories' => new CategoryResource($this->categories)
         ];
     }
 }

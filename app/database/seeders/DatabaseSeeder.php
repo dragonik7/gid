@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\TourPlace;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -15,7 +16,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         User::factory(10)->create();
-         $this->call(PlaceSeeder::class);
+        User::factory(10)->create();
+        $this->call(PlaceSeeder::class);
+
+        $this->call(TourSeeder::class);
+
+        TourPlace::factory(10)->create();
     }
 }

@@ -33,7 +33,7 @@ class PlaceFactory extends Factory
         return [
             'name' => fake()->sentence(3),
             'info' => fake()->paragraph(1),
-            'geo' => json_encode(['longitude'=> $longitude, 'latitude' =>$latitude]),
+            'geo' => json_encode(['latitude' =>$latitude, 'longitude'=> $longitude]),
             'photo' => json_encode($photo),
             'price' => fake()->numberBetween(0,5000),
             'category_id' => PlaceCategory::query()->get()->random()->id

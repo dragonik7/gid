@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('info')->nullable();
             $table->unsignedBigInteger('price');
             $table->json('photo');
-            $table->date('data_start');
+            $table->date('date_start');
             $table->time('duration');
             $table->foreignId('category_id')->constrained('tour_categories');
             $table->timestamps();

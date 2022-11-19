@@ -11,7 +11,7 @@ class TourService
     public function list(TourListDto $tourListDto)
     {
         $builder = Tour::query()
-            ->select(['id', 'name', 'info', 'price', 'photo', 'data_start', 'duration', 'category_id', 'category_id'])
+            ->select(['id', 'name', 'info', 'price', 'photo', 'date_start', 'duration', 'category_id', 'category_id'])
             ->when(
                 $tourListDto->name,
                 function (Builder $builder) use ($tourListDto): void {

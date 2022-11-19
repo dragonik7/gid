@@ -10,5 +10,4 @@ class TourListDto extends DataTransferObject
     public ?string $category_id;
     public ?int $price_from;
     public ?int $price_to;
-    public ?string $date_from;
 }
