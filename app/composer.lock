@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f4098c5aacf3bf0a6a0bb825d8cf74d3",
+    "content-hash": "7d0c5dbdb0bb98a24992f8b8115101df",
     "packages": [
         {
             "name": "bosnadev/database",
@@ -2268,16 +2268,16 @@
         },
         {
             "name": "mstaack/laravel-postgis",
-            "version": "5.4.2",
+            "version": "5.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mstaack/laravel-postgis.git",
-                "reference": "d450e36c10d9b96037d65e6f89ff6fa815eafc70"
+                "reference": "a3c00e0bd2b6ee371a869f6c9079e33d9ca99f7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mstaack/laravel-postgis/zipball/d450e36c10d9b96037d65e6f89ff6fa815eafc70",
-                "reference": "d450e36c10d9b96037d65e6f89ff6fa815eafc70",
+                "url": "https://api.github.com/repos/mstaack/laravel-postgis/zipball/a3c00e0bd2b6ee371a869f6c9079e33d9ca99f7c",
+                "reference": "a3c00e0bd2b6ee371a869f6c9079e33d9ca99f7c",
                 "shasum": ""
             },
             "require": {
@@ -2326,9 +2326,9 @@
             "description": "Postgis extensions for laravel. Aims to make it easy to work with geometries from laravel models",
             "support": {
                 "issues": "https://github.com/mstaack/laravel-postgis/issues",
-                "source": "https://github.com/mstaack/laravel-postgis/tree/5.4.2"
+                "source": "https://github.com/mstaack/laravel-postgis/tree/5.4"
             },
-            "time": "2022-08-11T09:48:56+00:00"
+            "time": "2022-04-25T13:19:25+00:00"
         },
         {
             "name": "nesbot/carbon",

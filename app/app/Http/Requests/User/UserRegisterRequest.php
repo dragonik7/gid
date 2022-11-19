@@ -8,13 +8,12 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UserRegisterRequest extends BaseApiRequest
 {
-
+    public $dto = UserRegistrationDto::class;
     /**
      * Get the validation rules that apply to the request.
      *
      * @return array<string, mixed>
      */
-    public $dto = UserRegistrationDto::class;
     public function rules()
     {
         return [

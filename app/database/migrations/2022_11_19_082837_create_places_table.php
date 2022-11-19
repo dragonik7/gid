@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use MStaack\LaravelPostgis\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -17,9 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('info');
-            $table->point('geo');
+            $table->json('geo');
             $table->json('photo');
             $table->unsignedBigInteger('price');
+            $table->foreignId('category_id')->constrained('place_categories');
             $table->timestamps();
         });
     }
