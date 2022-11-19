@@ -4,9 +4,10 @@ namespace App\Http\Resources\Place;
 
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\SuccessResource;
+use App\Http\Resources\User\UserInfoResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PlaceDetailResource extends SuccessResource
+class CommentDetailResource extends SuccessResource
 {
     /**
      * Transform the resource into an array.
@@ -18,13 +19,10 @@ class PlaceDetailResource extends SuccessResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
-            'info' => $this->info,
-            'geo' => $this->geo,
-            'photos' => $this->photo,
-            'price' => $this->price,
-            'categories' => new CategoryResource($this->categories),
-            'comments' => CommentDetailResource::collection($this->comments)
+            'text' => $this->text,
+            'image' => $this->image,
+            'rating' => $this->rating,
+            'user' => UserInfoResource::make($this->users)
         ];
     }
 }

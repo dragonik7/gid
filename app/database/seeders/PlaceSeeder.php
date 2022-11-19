@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Comment;
 use App\Models\Place;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -29,5 +30,6 @@ class PlaceSeeder extends Seeder
             DB::table('place_categories')->insert(['name' => $name]);
         }
         Place::factory(15)->create();
+        Comment::factory(20)->create();
     }
 }

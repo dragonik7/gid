@@ -14,9 +14,14 @@ class Place extends Model
         return $this->belongsTo(PlaceCategory::class, 'category_id');
     }
 
-    public function places()
+    public function tours()
     {
         return $this->belongsToMany(Tour::class, 'tour_places', 'place_id', 'tour_id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 
     public function getPhotoAttribute($value)
@@ -32,5 +37,4 @@ class Place extends Model
     {
         return json_decode($value);
     }
-
 }

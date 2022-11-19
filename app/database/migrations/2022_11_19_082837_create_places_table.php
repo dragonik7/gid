@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('info');
+            $table->dateTime('date_start')->nullable();
             $table->json('geo');
             $table->json('photo');
             $table->unsignedBigInteger('price');

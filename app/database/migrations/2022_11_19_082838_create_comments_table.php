@@ -13,10 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('place_categories', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('color')->nullable();
+            $table->text('text');
+            $table->string('image');
+            $table->unsignedBigInteger('rating');
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('place_id')->constrained('places');
             $table->timestamps();
         });
     }
@@ -28,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('place_categories');
+        Schema::dropIfExists('comments');
     }
 };
