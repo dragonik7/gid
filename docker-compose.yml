@@ -16,6 +16,8 @@ services:
     depends_on:
       - php-fpm
       - php-cli
+    ports:
+      - '80:80'
     networks:
       gid:
         ipv4_address: 172.16.0.3
