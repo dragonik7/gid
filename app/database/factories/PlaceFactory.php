@@ -24,12 +24,12 @@ class PlaceFactory extends Factory
         $images = preg_replace('/public\//', '', $file);
 
         $photo = [];
-        for($i = 0; $i < random_int(1,4); $i++){
+        for($i = 0; $i < random_int(1,5); $i++){
             $photo[$i] = $images[random_int(0,count($images)-1)];
         }
 
-        $latitude = fake()->latitude(43.740940,46.728409);
-        $longitude = fake()->longitude(41.672912,48.666751);
+        $latitude = fake()->latitude(42.98061903443898, 42.98096824556592);
+        $longitude = fake()->longitude(47.4856036845059, 47.49370339105104);
         return [
             'name' => fake()->sentence(3),
             'info' => fake()->paragraph(1),

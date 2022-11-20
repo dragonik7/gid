@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PlaceController;
+use App\Http\Controllers\RegionController;
 use App\Http\Controllers\TourController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -29,4 +30,8 @@ Route::group(['prefix'=>'/tour'],function () {
     Route::get('/get-categories', [TourController::class, 'listCategory']);
     Route::post('/list', [TourController::class, 'list']);
     Route::get('/{tour}', [TourController::class, 'detail']);
+});
+Route::group(['prefix'=>'/region'],function () {
+    Route::get('/get-categories', [RegionController::class, 'listCategory']);
+    Route::get('/list', [RegionController::class, 'list',]);
 });

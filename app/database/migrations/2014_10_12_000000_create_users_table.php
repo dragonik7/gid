@@ -22,7 +22,6 @@ return new class extends Migration {
             $table->string('avatar')->nullable();
             $table->string('password');
             $table->string('short_lang')->default('ru');
-            $table->integer('role_id')->default(1);
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

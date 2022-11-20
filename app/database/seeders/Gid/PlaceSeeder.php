@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\Gid;
 
 use App\Models\Comment;
 use App\Models\Place;
@@ -29,7 +29,7 @@ class PlaceSeeder extends Seeder
         foreach ($categoryNames as $name){
             DB::table('place_categories')->insert(['name' => $name]);
         }
-        Place::factory(15)->create();
+        Place::factory(100)->create();
         Comment::factory(20)->create();
     }
 }

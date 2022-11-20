@@ -1,9 +1,10 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\Gid;
 
+use App\Models\Place;
 use App\Models\Tour;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\TourPlace;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -25,9 +26,18 @@ class TourSeeder extends Seeder
             'Горный'
         ];
 
-        foreach ($categoryNames as $name){
+        foreach ($categoryNames as $name) {
             DB::table('tour_categories')->insert(['name' => $name]);
         }
-        Tour::factory(15)->create();
+        Tour::factory(10)->create();
+        for ($i = 1; $i < 11; $i++) {
+            for ($j = 1; $j < random_int(3,5); $j++) {
+
+                TourPlace::create([
+                    'tour_id' => $i,
+                    'place_id' => Place::query()->get()->random()->id
+                ]);
+            }
+        }
     }
 }

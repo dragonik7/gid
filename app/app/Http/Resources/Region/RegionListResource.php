@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Resources\Place;
+namespace App\Http\Resources\Region;
 
-use App\Http\Resources\CategoryResource;
 use App\Http\Resources\SuccessResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class PlaceListResource extends SuccessResource
+class RegionListResource extends SuccessResource
 {
     /**
      * Transform the resource into an array.
@@ -17,9 +16,8 @@ class PlaceListResource extends SuccessResource
     public function toArray($request)
     {
         return [
-            'id' => $this->id,
-            'geo' => $this->geo,
-            'categories' => new CategoryResource($this->categories)
+            'name' => $this->name,
+            'geo' => $this->geo
         ];
     }
 }
