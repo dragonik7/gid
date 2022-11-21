@@ -31,7 +31,7 @@ class TourSeeder extends Seeder
         }
         Tour::factory(10)->create();
         for ($i = 1; $i < 11; $i++) {
-            for ($j = 1; $j < random_int(3,5); $j++) {
+            for ($j = 1; $j < random_int(3,4); $j++) {
 
                 TourPlace::create([
                     'tour_id' => $i,

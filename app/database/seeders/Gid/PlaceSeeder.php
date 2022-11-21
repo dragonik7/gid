@@ -29,7 +29,7 @@ class PlaceSeeder extends Seeder
         foreach ($categoryNames as $name){
             DB::table('place_categories')->insert(['name' => $name]);
         }
-        Place::factory(100)->create();
+        Place::factory(20)->create();
         Comment::factory(20)->create();
     }
 }

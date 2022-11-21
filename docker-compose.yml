@@ -72,6 +72,8 @@ services:
     build:
       context: ./docker/dev
       dockerfile: ./postgres/Dockerfile
+    ports:
+      - '5432:5432'
     volumes:
       - ./storage/docker/postgres:/var/lib/postgresql/data
     environment:

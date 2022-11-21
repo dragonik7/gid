@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PlaceController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('place/{place}/edit', [PlaceController::class, 'edit'])->name('edit');
+Route::patch('place/{place}', [PlaceController::class, 'update'])->name('update');

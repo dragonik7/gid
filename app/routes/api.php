@@ -25,6 +25,7 @@ Route::group(['prefix'=>'/place'],function () {
     Route::get('/get-categories', [PlaceController::class, 'listCategory']);
     Route::post('/list', [PlaceController::class, 'list']);
     Route::get('/{place}', [PlaceController::class, 'detail']);
+
 });
 Route::group(['prefix'=>'/tour'],function () {
     Route::get('/get-categories', [TourController::class, 'listCategory']);
